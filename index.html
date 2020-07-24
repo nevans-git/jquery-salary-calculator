@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="client.js"></script>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Salary Calculator</title>
+</head>
+<body>
+    <header>
+        <h1>SALARY CALCULATOR</h1>
+    </header>
+    <section>
+        <input type="text" placeholder="First Name" name="first-name" id="firstName"/>
+        <input type="text" placeholder="Last Name" name="last-name" id="lastName"/>
+        <input type="number" placeholder="ID" name="employee-ID" id="employeeID"/>
+        <input type="text" placeholder="Title" name="title-input" id="employeeTitle">
+        <input type="number" placeholder="Annual Salary" name="annual-salary" id="annualSalary"/>
+        <button id="submitInfo">Submit</button>
+    </section>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Annual Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="firstNameInput"></td>
+                    <td id="lastNameInput"></td>
+                    <td id="employeeIDInput"></td>
+                    <td id="employeeTitleInput"></td>
+                    <td id="employeeAnnualSalary"></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
