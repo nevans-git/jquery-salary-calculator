@@ -12,8 +12,10 @@
 
 - Create a delete button that removes an employee from the DOM. For Base mode, it does not need to remove that Employee's salary from the reported total.
 
+------------------------------------------------
 
-
-Your project description goes here. What problem did you solve? How did you solve it?
+ # What problem did you solve? How did you solve it?
+ - I was faced with a problem of having to make a salary calculator that needs a place where the user can put employee information such as, employee's first name, last name, ID number, job title and annual salary. Also, I needed to include a submit button that should collect the employee information, store the employee information to use for calculating the monthly costs and append it to the DOM.
+    - After doing so, I made a delete button that removed an employee from the table.
 
 Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
