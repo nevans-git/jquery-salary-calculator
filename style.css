@@ -2,6 +2,7 @@
     float: right;
     background-color: red;
 }
+
 table{
     border-collapse: collapse;    
     background-color: white;
@@ -11,9 +12,6 @@ table, th, td{
     border: 1px solid black; 
     padding: 5px; 
     font-family: sans-serif;    
-}
-.overBudget{  
-    background-color: #ff5050;
 }
 
 html {   
