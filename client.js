@@ -8,6 +8,8 @@ function readyNow(){
     console.log('jq is working!');
 
     $('#submitInfo').on('click', infoSubmitter);
+
+    $('#target').on('click', '.deleteBtn', deleteEmployee);
     
 }
 
@@ -45,28 +47,63 @@ function infoSubmitter(){
 // this function adds the users data to the table 
 function appendItemsToTable(){
     console.log('in appendItemsToTable: ');
+
+    $('#target').empty();
     
+    
+    // clearing the input fields
+    $('#firstName').val('');
+    $('#lastName').val('');
+    $('#employeeID').val('');
+    $('#employeeTitle').val('');
+    $('#annualSalary').val('');
+
+    $('#target').append(`<tr>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>ID</td>
+    <td>Title</td>
+    <td>Salary</td>
+    </tr>`);
+    
+    // put all this together with tr and td 
     for (let employeeData of storeInfo){
-        $('#target').append(`<td>
-        ${employeeData.firstName} 
-        </td>`); // adding employee's first name to the table
+        $('#target').append(`
+        <tr>
+        <td>${employeeData.firstName}</td>
+        <td> ${employeeData.lastName}</td> 
+        <td>${employeeData.employeeID} </td> 
+        <td>${employeeData.employeeTitle}</td> 
+        <td>${employeeData.employeeSalary}</td>
+        <td><button class="deleteBtn">Delete</button></td>
+        </tr>`
+        ); // adding employee's first name to the table
 
-        $('#target').append(`<td>
-        ${employeeData.lastName}
-        </td>`); // adding employee's last name to the table
+        // $('#target').append(`<td>
+        // ${employeeData.lastName}
+        // </td>`); // adding employee's last name to the table
 
-        $('#target').append(`<td>
-        ${employeeData.employeeID}
-        </td>`); // adding employee's ID to the table
+        // $('#target').append(`<td>
+        // ${employeeData.employeeID}
+        // </td>`); // adding employee's ID to the table
 
-        $('#target').append(`<td>
-        ${employeeData.employeeTitle}
-        </td>`); // adding employee's title to the table
+        // $('#target').append(`<td>
+        // ${employeeData.employeeTitle}
+        // </td>`); // adding employee's title to the table
 
-        $('#target').append(`<td>
-        ${employeeData.employeeSalary}
-        </td>`); // adding employee's salary to the table 
+        // $('#target').append(`<td>
+        // ${employeeData.employeeSalary}
+        // </td>`); // adding employee's salary to the table 
     }
+}
+
+function deleteEmployee(){
+    console.log('in deleteEmployee');
+
+    $(this).closest('tr').remove(); 
+
+
+    
 }
 
 function calculateMonthlyCost(){
@@ -77,17 +114,36 @@ function calculateMonthlyCost(){
     for(let i = 0; i < storeInfo.length; i++){
     // for each employee, add up total all the salaries entered
         totalSalaryCost += Number(storeInfo[i].employeeSalary)/12; // calculating the total monthly cost over a 12 month period
+        $('#totalMonthlyCost').empty();
 
-        $('#totalMonthlyCost').append(`<h3>
-    Total Monthly Cost: $${totalSalaryCost}
-    </h3>`); // ***** figure out how to properly display the total monthly cost
+        if(totalSalaryCost > '20000'){
+            // Currently trying to figure out how to get totalMonthlyCost to appear red when it exceeds $20,000
+            console.log('monthly cost is over $20,000!');
+            
+            
+            $('#totalMonthlyCost').append(`
+            <h3 class="overMonthlyCost"> Total Monthly Cost: $${totalSalaryCost.toFixed(2)}</h3>`);
+            
+           //$('h3').addClass('overMonthlyCost');
+        }
+        else{
+            $('#totalMonthlyCost').append(`Total Monthly Cost: $${totalSalaryCost.toFixed(2)}`)
+            
+            //$('#totalMonthlyCost').append(`Total Monthly Cost: $${totalSalaryCost.toFixed(2)}`); // ***** figure out how to properly display the total monthly cost
+    }
     }
     console.log('total salary cost: ', totalSalaryCost);
 
-    if(totalSalaryCost > 20000){
-        //$(this).closest('#totalMonthlyCost').toggleClass('overMonthlyCost'); // Currently trying to figure out how to get totalMonthlyCost to appear red
-        $('#totalMonthlyCost').addClass('.overMonthlyCost');
-    }
+    // if(totalSalaryCost > '20000'){
+    //     // Currently trying to figure out how to get totalMonthlyCost to appear red when it exceeds $20,000
+    //     console.log('monthly cost is over $20,000!');
+
+    //     $('#totalMonthlyCost').append(`<h3 class="overMonthlyCost">
+    // Total Monthly Cost: $${totalSalaryCost}
+    // </h3>`);
+        
+    //    //$('h3').addClass('overMonthlyCost');
+    // }
 
     let displayTotalSalaryCost = $('#totalMonthlyCost');
     //displayTotalSalaryCost.empty();

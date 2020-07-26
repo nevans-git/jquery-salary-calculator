@@ -1,3 +1,25 @@
 .overMonthlyCost {
     background-color: red;
 }
+table{border-collapse: collapse;    
+    background-color: seashell;
+}
+
+table, th, td{ 
+    border: 1px solid black; 
+    padding: 5px; 
+    font-family: Avantgarde;    
+}
+.overBudget{  
+    background-color: #ff5050;
+}
+footer{    
+    float:right;
+}
+html {   
+    background-color: rosybrown;
+}
+
+header{ 
+    font-family: Didot;
+}
